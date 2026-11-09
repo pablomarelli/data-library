@@ -17,10 +17,10 @@ test('skip navigation preserves catalog route and state', async ({ page }) => {
 test('bilingual analysis, real data, rate controls, download and theme persistence', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?from=2012-10');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('salario digno');
   await expect(page.locator('.chart-figure svg').first()).toBeVisible();
-  await expect(page.locator('[data-testid="gap-line-usd"]')).toHaveAttribute('d', /M.+L/);
+  await expect(page.getByTestId('gap-line-usd')).toHaveAttribute('d', /M.+L/);
   await page.getByRole('button', { name: 'EN', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.getByLabel('Dollar rate', { exact: true }).selectOption('usd-blue');
@@ -73,6 +73,7 @@ test('fetch failure has a working retry', async ({ page }) => {
 test('invalid range and missing rate coverage remain explicit', async ({ page }) => {
   await page.goto('/?lang=en');
   await page.getByLabel('Dollar rate', { exact: true }).selectOption('usd-cripto');
+  await page.getByLabel('From', { exact: true }).fill('2012-10');
   await page.getByLabel('To', { exact: true }).fill('2014-01');
   await expect(page.locator('.chart-notes')).toContainText('Exchange rates are missing');
   await expect(page.locator('.inspector-value').last()).toContainText('No data');

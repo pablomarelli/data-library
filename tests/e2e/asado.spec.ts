@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 test('optional asado plot, same-month readout, export, URL and missing history', async ({ page, request }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('/?lang=en');
+  await page.goto('/?lang=en&from=2012-10');
   const checkbox = page.getByRole('checkbox', { name: 'Show kilograms of asado' });
   await expect(checkbox).not.toBeChecked();
   await expect(page.getByTestId('axis-asadoKg')).toHaveCount(0);
@@ -65,7 +65,7 @@ test('asado view is accessible and fits both themes and viewports', async ({ pag
   for (const [theme, width, language] of [['light', 1440, 'es'], ['dark', 1440, 'en'], ['light', 390, 'en'], ['dark', 390, 'es']] as const) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(`/?lang=${language}&theme=${theme}&asado=1`);
-    await expect(page.locator('[data-testid="gap-line-asadoKg"]')).toHaveAttribute('d', /M.+L/);
+    await expect(page.getByTestId('axis-asadoKg')).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
@@ -78,7 +78,7 @@ test('normal motion does not clip dollar, kilogram, or date labels', async ({ pa
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto('/?lang=en&theme=dark&asado=1');
+    await page.goto('/?lang=en&theme=dark&asado=1&from=2012-10');
     for (const axis of ['axis-usd', 'axis-asadoKg', 'axis-date']) {
       const labels = page.getByTestId(axis);
       await expect(labels).toBeVisible();

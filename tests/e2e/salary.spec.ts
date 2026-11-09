@@ -17,7 +17,7 @@ test('separate salary analysis uses original pay and retains all three measures'
   await expect(page.getByTestId('axis-asadoKg')).toBeVisible();
   const inputs = await (await request.get('/data/chart-inputs.json')).json();
   const last = inputs.salary.at(-1);
-  await expect(page.getByLabel('From', { exact: true })).toHaveValue('1995-01');
+  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2016-04');
   await expect(page.getByLabel('To', { exact: true })).toHaveValue(last.date.slice(0, 7));
   await expect(page.locator('.inspector-value').first()).toContainText(new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(last.value));
   await expect(page.locator('.legend')).not.toContainText('Adjusted for inflation');
@@ -37,8 +37,29 @@ test('separate salary analysis uses original pay and retains all three measures'
   await expect(page.getByRole('heading', { name: 'Which salary we measure' })).toBeInViewport();
   await page.getByRole('link', { name: 'Porcel Jr.', exact: true }).click();
   await expect(page.locator('.inspector-value').first()).toContainText('Adjusted for inflation');
-  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2012-10');
+  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2013-01');
   expect(errors).toEqual([]);
+});
+
+test('default range follows visible coverage while explicit history stays available', async ({ page }) => {
+  await page.goto('/?lang=en#salary');
+  const from = page.getByLabel('From', { exact: true });
+  await expect(from).toHaveValue('2016-04');
+  await page.getByRole('checkbox', { name: 'Show kilograms of asado' }).uncheck();
+  await expect(from).toHaveValue('2013-01');
+  await page.getByRole('checkbox', { name: 'Show kilograms of asado' }).check();
+  await expect(from).toHaveValue('2016-04');
+  await page.locator('.controls select').first().selectOption('usd-bolsa');
+  await expect(from).toHaveValue('2018-10');
+  await page.getByRole('button', { name: 'All', exact: true }).click();
+  await expect(from).toHaveValue('1995-01');
+  await page.locator('.controls select').first().selectOption('usd-blue');
+  await expect(from).toHaveValue('1995-01');
+  await page.reload();
+  await expect(from).toHaveValue('1995-01');
+  await page.goto('/?lang=en&from=2000-01&to=2010-01#salary');
+  await expect(from).toHaveValue('2000-01');
+  await expect(page.getByLabel('To', { exact: true })).toHaveValue('2010-01');
 });
 
 test('salary catalog provides original observations and scope', async ({ page, request }) => {
@@ -64,7 +85,7 @@ test('regular pay is the default and switching preserves honest coverage and exp
   await page.getByRole('button', { name: '3 years', exact: true }).click();
   await select.selectOption('total');
   await expect(page.getByLabel('To', { exact: true })).toHaveValue(inputs.salary.at(-1).date.slice(0, 7));
-  await expect(page.getByLabel('From', { exact: true })).toHaveValue('1995-01');
+  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2016-04');
   await page.reload();
   await expect(select).toHaveValue('total');
   await select.selectOption('regular');

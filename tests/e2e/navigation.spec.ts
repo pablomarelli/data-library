@@ -12,7 +12,7 @@ test('desktop sidebar groups analyses and marks the active route', async ({ page
   await page.getByRole('button', { name: '3 years', exact: true }).click();
   await nav.getByRole('link', { name: 'Porcel Jr.', exact: true }).click();
   await expect(nav.getByRole('link', { name: 'Porcel Jr.', exact: true })).toHaveAttribute('aria-current', 'page');
-  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2012-10');
+  await expect(page.getByLabel('From', { exact: true })).toHaveValue('2013-01');
   await nav.getByRole('link', { name: 'Data library', exact: true }).click();
   await expect(nav.getByRole('link', { name: 'Data library', exact: true })).toHaveAttribute('aria-current', 'page');
   await page.goBack();

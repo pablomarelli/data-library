@@ -52,11 +52,14 @@ function AnalysisContent({ inputs, language, dark, kind, basis, onBasisChange }:
   const [showAsado, setShowAsado] = useState(initial.get('asado') === '1' || (salary && initial.get('asado') !== '0'));
   const min = source[0].date.slice(0, 7);
   const max = source.at(-1)!.date.slice(0, 7);
-  const validMonth = (value: string | null, fallback: string) => value && /^\d{4}-(0[1-9]|1[0-2])$/.test(value) && value >= min && value <= max ? value : fallback;
-  const [start, setStart] = useState(validMonth(initial.get('from'), min));
-  const [end, setEnd] = useState(validMonth(initial.get('to'), max));
+  const validMonth = (value: string | null) => value && /^\d{4}-(0[1-9]|1[0-2])$/.test(value) && value >= min && value <= max ? value : null;
+  const [customStart, setStart] = useState(validMonth(initial.get('from')));
+  const [customEnd, setEnd] = useState(validMonth(initial.get('to')));
   const [selected, setSelected] = useState<string | null>(null);
   const allPoints = useMemo(() => withAsado(salary ? salaryPoints(source, inputs.rates[rate] ?? [], aggregation) : porcel(inputs.cpi, inputs.rates[rate] ?? [], aggregation), inputs.asado), [inputs, source, rate, aggregation, salary]);
+  const sharedPoints = useMemo(() => allPoints.filter(row => row.usd != null && (!showAsado || row.asadoKg != null)), [allPoints, showAsado]);
+  const start = customStart ?? sharedPoints[0]?.date.slice(0, 7) ?? min;
+  const end = customEnd ?? sharedPoints.at(-1)?.date.slice(0, 7) ?? max;
   const points = useMemo(() => allPoints.filter(row => row.date.slice(0, 7) >= start && row.date.slice(0, 7) <= end), [allPoints, start, end]);
   const current = points.find(row => row.date === selected) ?? points.at(-1);
   const validRange = start < end && points.length > 1;
@@ -78,7 +81,7 @@ function AnalysisContent({ inputs, language, dark, kind, basis, onBasisChange }:
     </section>
     <section className="chart-panel" aria-labelledby="chart-title">
       <div className="chart-heading"><div><h2 id="chart-title">{t.chartTitle}</h2><p>{t.base}</p><p className="mobile-reconstruction">{t.reconstruction}</p></div><button className="button secondary download" onClick={exportData} disabled={!validRange}><ArrowDownToLine size={16} />{t.download}</button></div>
-      {salary && <div className="salary-basis"><label>{language === 'es' ? 'Serie salarial' : 'Salary series'}<select aria-label={language === 'es' ? 'Serie salarial' : 'Salary series'} value={basis} onChange={event => onBasisChange(event.target.value as SalaryBasis)}><option value="regular">{language === 'es' ? 'Normal y permanente (estimación oficial)' : 'Regular pay (official estimate)'}</option><option value="total">{language === 'es' ? 'Bruto con aguinaldo' : 'Gross pay including bonuses'}</option></select></label><p>{language === 'es' ? 'Cada serie usa su propia cobertura. Al cambiar, se restablece el período completo.' : 'Each series uses its own coverage. Switching resets the date range to all available months.'}</p></div>}
+      {salary && <div className="salary-basis"><label>{language === 'es' ? 'Serie salarial' : 'Salary series'}<select aria-label={language === 'es' ? 'Serie salarial' : 'Salary series'} value={basis} onChange={event => onBasisChange(event.target.value as SalaryBasis)}><option value="regular">{language === 'es' ? 'Normal y permanente (estimación oficial)' : 'Regular pay (official estimate)'}</option><option value="total">{language === 'es' ? 'Bruto con aguinaldo' : 'Gross pay including bonuses'}</option></select></label><p>{language === 'es' ? 'Al cambiar de serie, el período se ajusta a la cobertura compartida de las medidas visibles. «Todo» muestra la historia completa.' : 'Switching series resets the range to the shared coverage of visible measures. “All” shows the full history.'}</p></div>}
       <div className="controls">
         <label>{t.rate}<select aria-label={t.rate} value={rate} onChange={event => { setRate(event.target.value); setQuery('rate', event.target.value); }}>{Object.keys(names).map(id => <option key={id} value={id}>{rateName(id, language)}</option>)}</select></label>
         <label className="aggregation-control">{t.aggregation}<select aria-label={t.aggregation} value={aggregation} onChange={event => { setAggregation(event.target.value as Aggregation); setQuery('aggregation', event.target.value); }}><option value="close">{t.close}</option><option value="mean">{t.mean}</option></select></label>

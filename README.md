@@ -83,7 +83,7 @@ The selected snapshot was retrieved on 2026-11-08. National CPI ends in August 2
 - OEDE uses X-12 ARIMA seasonal adjustment and an August-based level factor to remove the influence of the semiannual bonus and other seasonal pay. This is an official estimate, not observed take-home pay and not the trend-cycle column. The app adds no further smoothing or CPI adjustment.
 - The parser locates the labeled column, normalizes the source's month/year dates (some underlying Excel serials use day 2), validates observations, and preserves full numeric precision.
 - The workbook and original CSV are separate publication vintages. Each retains its own coverage, source notes, and terms. No splice is performed.
-- `pay=regular` selects this estimate; `pay=total` selects original gross pay. Switching resets dates to the selected source's full coverage. Exports identify the selected dataset and source.
+- `pay=regular` selects this estimate; `pay=total` selects original gross pay. Switching resets dates to the shared coverage of the visible measures. The default salary view starts in April 2016, when asado observations begin. Changing the dollar rate or asado visibility updates automatic date bounds; explicit URL dates, custom dates, and range presets take priority. “All” retains the source's full history, including missing conversions. Exports identify the selected dataset and source.
 
 ### Original gross pay (optional)
 
