@@ -3,11 +3,16 @@ import type { Localized } from './data/model';
 export type ChartSection = {
   id: string;
   title: Localized;
-  charts: { page: 'analysis' | 'salary'; title: Localized }[];
+  charts: { page: 'analysis' | 'salary' | 'football'; title: Localized }[];
 };
 
 /** Add future categories and their published charts here. */
 export const chartSections: ChartSection[] = [
+  {
+    id: 'football',
+    title: { es: 'Fútbol', en: 'Football' },
+    charts: [{ page: 'football', title: { es: 'Goles y asistencias', en: 'Goals and assists' } }],
+  },
   {
     id: 'economy',
     title: { es: 'Economía', en: 'Economy' },

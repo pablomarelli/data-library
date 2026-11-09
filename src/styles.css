@@ -338,3 +338,38 @@ footer span { font-size: 12px; display: block; margin-top: 5px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0s !important; transition-duration: 0s !important; }
 }
+.football-search { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px 28px 8px; }
+.football-search label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; flex: 1; min-width: 180px; }
+.football-search input, .football-search select { width: 100%; min-width: 0; }
+.football-search input { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font: inherit; }
+.football-search input::placeholder { color: var(--muted); }
+.football-caption { padding: 8px 28px; color: var(--muted); font-size: 13px; }
+.football-plot { padding: 0 16px; }
+.football-plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.football-grid { stroke: var(--line); stroke-dasharray: 2 5; }
+.football-tick { fill: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.football-axis { fill: var(--ink); font-size: 14px; font-weight: 600; }
+.football-bubble { fill: var(--ars); fill-opacity: .22; stroke: var(--ars); stroke-opacity: .55; stroke-width: 1; cursor: pointer; }
+.football-bubble.selected { fill: var(--usd); stroke: var(--usd); fill-opacity: .85; stroke-width: 2; }
+.football-bubble.dimmed { fill-opacity: .04; stroke-opacity: .08; }
+.football-label { fill: var(--muted); font-size: 12px; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+.football-label.selected { fill: var(--ink); font-weight: 700; }
+.football-inspector { margin: 20px 28px; padding: 20px; background: var(--soft); border-radius: 6px; }
+.football-inspector > strong { font-family: 'Manrope Variable', sans-serif; font-size: 20px; }
+.football-inspector dl { display: flex; flex-wrap: wrap; gap: 16px 32px; margin: 16px 0; }
+.football-inspector dt, .football-inspector p { color: var(--muted); font-size: 13px; }
+.football-inspector dd { margin: 4px 0 0; font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.football-table { border-top: 1px solid var(--line); padding: 16px 28px; }
+.football-table summary { cursor: pointer; min-height: 28px; }
+.football-table .table-scroll { overflow: auto; max-height: 440px; }
+.football-methodology { padding: 48px 0; max-width: 74ch; scroll-margin-top: 24px; }
+.football-methodology h2 { margin-bottom: 20px; }
+.football-methodology p { margin: 16px 0; color: var(--muted); }
+.football-hash { overflow-wrap: anywhere; font-size: 12px; }
+@media (max-width: 700px) {
+  .football-search { padding: 16px; gap: 12px; }
+  .football-inspector { margin: 16px; padding: 16px; }
+  .football-plot { overflow-x: auto; padding: 0 8px; }
+  .football-plot svg { min-width: 600px; }
+  .football-caption { padding: 8px 16px; }
+}

@@ -1,5 +1,13 @@
 # data-library
 
+## Football: goals and assists
+
+`#football` adds a bilingual player bubble chart for the Premier League, La Liga, Serie A, Bundesliga, and Ligue 1. Horizontal position is assists per 90 recorded minutes; vertical position is goals per 90, including penalties. Bubble area is proportional to minutes. The default minimum is 9,000 minutes over all recorded seasons, or 900 when selecting one season. Search highlights players on unchanged axes. Hover, click, or the keyboard-accessible player selector show exact counts and each player's observed dates. Filters select a league, a July-June season, and a minutes threshold. CSV export contains all players matching these filters; text search only changes highlighting and the table.
+
+The first football snapshot contains 37,685 player/league/season records, from 2012-08-10 through 2026-05-24. It is not a full-career or all-time dataset. No cups, national teams, MLS, or Saudi league appearances enter this chart. Missing appearances are not reconstructed. The third-party publisher declares CC0; this does not clear upstream third-party rights. See `docs/research/football-goals-assists-sources.md` for verified coverage and terms.
+
+Refresh with `npm run data:football`. This archives the downloaded appearance CSV as gzip, hashes the decompressed source bytes, rejects malformed selected observations and duplicate appearances, then publishes `public/data/football.json` and `football.csv`. The JSON includes provenance and reusable player/league/season counts. The raw snapshot and manifest stay in `data/football/`. The football dataset is separate from the economic catalog's time-series schema. `src/data/football.ts` owns aggregation and rates. The scatter plot uses SVG with D3 scales; the existing economic plots keep their Bklit integration.
+
 Public economic data and analysis for `data.pablomarelli.dev`. Built with React, TypeScript, Vite, and vendored Bklit chart components. Spanish and English share the same datasets. Light and dark themes are available for comparison.
 
 ## Run locally

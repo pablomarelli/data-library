@@ -1,0 +1,9 @@
+{
+  "retrievedAt": "2026-11-09T03:45:43.409Z",
+  "sourceUrl": "https://www.kaggle.com/api/v1/datasets/download/davidcariboo/player-scores/appearances.csv",
+  "sha256": "c4ba5327f9005e4a9914c0f78c3b07132ef2cf1a4babda379bbf54ffd207ebec",
+  "first": "2012-08-10",
+  "last": "2026-05-24",
+  "rawFile": "data/football/2026-11-09T03-45-43.409Z/appearances.csv.gz",
+  "records": 37685
+}

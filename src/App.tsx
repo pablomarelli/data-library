@@ -7,7 +7,8 @@ import Analysis from './components/Analysis';
 import Sidebar from './components/Sidebar';
 
 const Catalog = lazy(() => import('./components/Catalog'));
-const currentPage = () => location.hash === '#data' ? 'data' : location.hash === '#salary' || location.hash === '#salary-methodology' ? 'salary' : 'analysis';
+const Football = lazy(() => import('./components/Football'));
+const currentPage = () => location.hash.startsWith('#football') ? 'football' : location.hash === '#data' ? 'data' : location.hash === '#salary' || location.hash === '#salary-methodology' ? 'salary' : 'analysis';
 function preference(key: string, fallback: string) {
   try { return new URLSearchParams(location.search).get(key) ?? localStorage.getItem(`data-library-${key}`) ?? fallback; } catch { return fallback; }
 }
@@ -24,7 +25,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dataset.theme = theme;
-    document.title = `data-library · ${page === 'data' ? t.catalog : page === 'salary' ? (language === 'es' ? 'Salario bruto promedio · SIPA' : 'Average gross pay · SIPA') : 'Salario Digno Porcel Jr.'}`;
+    document.title = `data-library · ${page === 'football' ? (language === 'es' ? 'Goles y asistencias' : 'Goals and assists') : page === 'data' ? t.catalog : page === 'salary' ? (language === 'es' ? 'Salario bruto promedio · SIPA' : 'Average gross pay · SIPA') : 'Salario Digno Porcel Jr.'}`;
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101a2c' : '#f5f7fa');
     try { localStorage.setItem('data-library-lang', language); localStorage.setItem('data-library-theme', theme); } catch { /* Private browsing may disable storage. */ }
     const url = new URL(location.href); url.searchParams.set('lang', language); url.searchParams.set('theme', theme); history.replaceState(null, '', url);
@@ -33,7 +34,7 @@ export default function App() {
     const update = () => {
       const nextPage = currentPage();
       setPage(nextPage);
-      if (location.hash === '#methodology' || location.hash === '#salary-methodology') requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'instant' }));
+      if (location.hash.endsWith('methodology')) requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'instant' }));
       else window.scrollTo({ top: 0, behavior: 'instant' });
     };
     window.addEventListener('hashchange', update);
@@ -49,8 +50,8 @@ export default function App() {
     <div className="workspace-layout">
       <Sidebar language={language} page={page} />
       <div className="workspace-content">
-        <div className="content-toolbar"><span>{page === 'data' ? t.catalog : t.analysis}</span><a href={page === 'salary' ? '#salary-methodology' : '#methodology'}>{t.sources}<ArrowUpRight size={13} /></a></div>
-        <main id="main" tabIndex={-1}><ErrorBoundary language={language}>{page !== 'data' ? <Analysis language={language} dark={theme === 'dark'} kind={page === 'salary' ? 'salary' : 'porcel'} /> : <Suspense fallback={<p role="status">{t.loading}</p>}><Catalog language={language} /></Suspense>}</ErrorBoundary></main>
+        <div className="content-toolbar"><span>{page === 'data' ? t.catalog : t.analysis}</span><a href={page === 'football' ? '#football-methodology' : page === 'salary' ? '#salary-methodology' : '#methodology'}>{t.sources}<ArrowUpRight size={13} /></a></div>
+        <main id="main" tabIndex={-1}><ErrorBoundary language={language}>{page === 'football' ? <Suspense fallback={<p role="status">{t.loading}</p>}><Football language={language} /></Suspense> : page !== 'data' ? <Analysis language={language} dark={theme === 'dark'} kind={page === 'salary' ? 'salary' : 'porcel'} /> : <Suspense fallback={<p role="status">{t.loading}</p>}><Catalog language={language} /></Suspense>}</ErrorBoundary></main>
       </div>
     </div>
     <footer><div><a className="footer-brand" href="#analysis">data/library</a><p>{t.footer}</p></div><div><p>{t.status}</p><span>{t.made}</span></div></footer>
