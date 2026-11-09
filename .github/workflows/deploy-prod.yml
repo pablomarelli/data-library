@@ -1,0 +1,74 @@
+name: Prod Deploy (ArgoCD)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: Semver bump type
+        required: true
+        type: choice
+        options: [patch, minor, major]
+      publish-only:
+        description: Publish without updating infrastructure (initial onboarding)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: production-release
+  cancel-in-progress: false
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.bump.outputs.version }}
+      revision: ${{ steps.bump.outputs.revision }}
+    steps:
+      - name: Bump version
+        id: bump
+        uses: pablomarelli/homelab-workflows/.github/actions/bump-version/javascript@main
+        with:
+          bump-type: ${{ inputs.bump-type || 'patch' }}
+          token: ${{ secrets.REPOS_TOKEN }}
+  lint:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pablomarelli/homelab-workflows/.github/actions/lint/javascript@main
+        with:
+          ref: ${{ needs.bump-version.outputs.revision }}
+  test:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pablomarelli/homelab-workflows/.github/actions/test/javascript@main
+        with:
+          ref: ${{ needs.bump-version.outputs.revision }}
+  build:
+    needs: [bump-version, lint, test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: pablomarelli/homelab-workflows/.github/actions/docker-build@main
+        with:
+          docker-registry: ghcr.io
+          docker-image: ${{ github.repository }}
+          docker-username: ${{ github.actor }}
+          docker-password: ${{ secrets.GITHUB_TOKEN }}
+          docker-push: true
+          version: ${{ needs.bump-version.outputs.version }}
+          ref: ${{ needs.bump-version.outputs.revision }}
+  deploy:
+    if: ${{ !inputs.publish-only && vars.DEPLOY_ENABLED != 'false' }}
+    needs: [bump-version, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pablomarelli/homelab-workflows/.github/actions/argo-deploy@main
+        with:
+          app-name: ${{ github.event.repository.name }}
+          app-namespace: ${{ vars.APP_NAMESPACE }}
+          version: ${{ needs.bump-version.outputs.version }}
+          token: ${{ secrets.INFRA_REPO_TOKEN }}

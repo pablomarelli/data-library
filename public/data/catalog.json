@@ -1,0 +1,470 @@
+{
+  "generatedAt": "2026-11-08T23:23:01.425Z",
+  "calculationVersion": "porcel-v1",
+  "entries": [
+    {
+      "id": "cpi-san-luis",
+      "name": {
+        "es": "IPC San Luis",
+        "en": "San Luis CPI"
+      },
+      "description": {
+        "es": "Índice de precios al consumidor, nivel general.",
+        "en": "Consumer price index, all items."
+      },
+      "unit": "2003 = 100",
+      "frequency": "monthly",
+      "provider": "San Luis · datos.gob.ar",
+      "sourceUrl": "https://infra.datos.gob.ar/catalog/sspm/dataset/197/distribution/197.1/download/indice-precios-consumidor-san-luis-2003-100.csv",
+      "licenseUrl": "https://datos.gob.ar/",
+      "license": {
+        "es": "Fuente pública. Consultar condiciones del organismo; atribución conservada.",
+        "en": "Public source. Check agency reuse terms; attribution retained."
+      },
+      "notes": {
+        "es": "Niveles originales. Los índices regionales no representan la misma canasta.",
+        "en": "Original index levels. Regional indices do not represent the same basket."
+      },
+      "start": "2005-10-01",
+      "end": "2026-06-01",
+      "count": 249,
+      "csv": "/data/cpi-san-luis.csv",
+      "json": "/data/cpi-san-luis.json"
+    },
+    {
+      "id": "cpi-gba",
+      "name": {
+        "es": "IPC Gran Buenos Aires",
+        "en": "Greater Buenos Aires CPI"
+      },
+      "description": {
+        "es": "Índice de precios al consumidor, nivel general.",
+        "en": "Consumer price index, all items."
+      },
+      "unit": "2016-12 = 100",
+      "frequency": "monthly",
+      "provider": "INDEC · datos.gob.ar",
+      "sourceUrl": "https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26,101.1_I2NG_2016_M_22&limit=1000",
+      "licenseUrl": "https://datos.gob.ar/",
+      "license": {
+        "es": "Fuente pública. Consultar condiciones del organismo; atribución conservada.",
+        "en": "Public source. Check agency reuse terms; attribution retained."
+      },
+      "notes": {
+        "es": "Niveles originales. Los índices regionales no representan la misma canasta.",
+        "en": "Original index levels. Regional indices do not represent the same basket."
+      },
+      "start": "2016-04-01",
+      "end": "2026-08-01",
+      "count": 125,
+      "csv": "/data/cpi-gba.csv",
+      "json": "/data/cpi-gba.json"
+    },
+    {
+      "id": "cpi-national",
+      "name": {
+        "es": "IPC nacional",
+        "en": "National CPI"
+      },
+      "description": {
+        "es": "Índice de precios al consumidor, nivel general.",
+        "en": "Consumer price index, all items."
+      },
+      "unit": "2016-12 = 100",
+      "frequency": "monthly",
+      "provider": "INDEC · datos.gob.ar",
+      "sourceUrl": "https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26,101.1_I2NG_2016_M_22&limit=1000",
+      "licenseUrl": "https://datos.gob.ar/",
+      "license": {
+        "es": "Fuente pública. Consultar condiciones del organismo; atribución conservada.",
+        "en": "Public source. Check agency reuse terms; attribution retained."
+      },
+      "notes": {
+        "es": "Niveles originales. Los índices regionales no representan la misma canasta.",
+        "en": "Original index levels. Regional indices do not represent the same basket."
+      },
+      "start": "2016-12-01",
+      "end": "2026-08-01",
+      "count": 117,
+      "csv": "/data/cpi-national.csv",
+      "json": "/data/cpi-national.json"
+    },
+    {
+      "id": "cpi-linked",
+      "name": {
+        "es": "IPC enlazado desde 2012",
+        "en": "Linked CPI since 2012"
+      },
+      "description": {
+        "es": "San Luis → GBA → nacional. Serie de elaboración propia.",
+        "en": "San Luis → GBA → national. Independently calculated series."
+      },
+      "unit": "2012-10 = 100",
+      "frequency": "monthly",
+      "provider": "data-library",
+      "sourceUrl": "#methodology",
+      "licenseUrl": "https://datos.gob.ar/",
+      "license": {
+        "es": "Fuente pública. Consultar condiciones del organismo; atribución conservada.",
+        "en": "Public source. Check agency reuse terms; attribution retained."
+      },
+      "notes": {
+        "es": "San Luis hasta abril 2016; GBA mayo 2016-junio 2017; nacional desde julio 2017. Enlace por cocientes de índices, sin redondeo intermedio.",
+        "en": "San Luis through April 2016; GBA May 2016-June 2017; national from July 2017. Linked index ratios, without intermediate rounding."
+      },
+      "start": "2012-10-01",
+      "end": "2026-08-01",
+      "count": 167,
+      "csv": "/data/cpi-linked.csv",
+      "json": "/data/cpi-linked.json"
+    },
+    {
+      "id": "usd-reference",
+      "name": {
+        "es": "Dólar de referencia histórico",
+        "en": "Historical reference dollar"
+      },
+      "description": {
+        "es": "Promedio mensual de cotizaciones diarias. Historia desde 1989.",
+        "en": "Monthly average of daily rates. History from 1989."
+      },
+      "unit": "ARS / USD",
+      "frequency": "monthly",
+      "provider": "OECD · FRED",
+      "sourceUrl": "https://fred.stlouisfed.org/series/ARGCCUSMA02STM",
+      "licenseUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+      "license": {
+        "es": "Datos OECD redistribuidos por FRED. Consultar términos OECD.",
+        "en": "OECD data distributed by FRED. See OECD terms."
+      },
+      "notes": {
+        "es": "La fuente expresa la historia en pesos actuales como unidad monetaria, no pesos de poder adquisitivo constante. Antes de 1992 ya incorpora la conversión de australes; no dividir nuevamente por 10.000. No equivale a una pizarra minorista.",
+        "en": "The source expresses history in current peso currency units, not constant purchasing power. Pre-1992 values already account for austral conversion; do not divide by 10,000 again. Not a retail bank quote."
+      },
+      "start": "1989-01-01",
+      "end": "2026-09-01",
+      "count": 453,
+      "csv": "/data/usd-reference.csv",
+      "json": "/data/usd-reference.json"
+    },
+    {
+      "id": "usd-oficial",
+      "name": {
+        "es": "Dólar oficial",
+        "en": "Official dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/oficial",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2011-01-03",
+      "end": "2026-11-08",
+      "count": 5789,
+      "csv": "/data/usd-oficial.csv",
+      "json": "/data/usd-oficial.json"
+    },
+    {
+      "id": "usd-blue",
+      "name": {
+        "es": "Dólar blue",
+        "en": "Parallel dollar (blue)"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/blue",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2011-01-03",
+      "end": "2026-11-08",
+      "count": 5789,
+      "csv": "/data/usd-blue.csv",
+      "json": "/data/usd-blue.json"
+    },
+    {
+      "id": "usd-bolsa",
+      "name": {
+        "es": "Dólar MEP",
+        "en": "MEP dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/bolsa",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2018-10-29",
+      "end": "2026-11-08",
+      "count": 2933,
+      "csv": "/data/usd-bolsa.csv",
+      "json": "/data/usd-bolsa.json"
+    },
+    {
+      "id": "usd-contadoconliqui",
+      "name": {
+        "es": "Dólar CCL",
+        "en": "CCL dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/contadoconliqui",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2013-01-02",
+      "end": "2026-11-08",
+      "count": 5059,
+      "csv": "/data/usd-contadoconliqui.csv",
+      "json": "/data/usd-contadoconliqui.json"
+    },
+    {
+      "id": "usd-mayorista",
+      "name": {
+        "es": "Dólar mayorista",
+        "en": "Wholesale dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/mayorista",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2011-01-03",
+      "end": "2026-11-08",
+      "count": 5789,
+      "csv": "/data/usd-mayorista.csv",
+      "json": "/data/usd-mayorista.json"
+    },
+    {
+      "id": "usd-tarjeta",
+      "name": {
+        "es": "Dólar tarjeta",
+        "en": "Card dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/tarjeta",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2019-12-23",
+      "end": "2026-11-08",
+      "count": 2513,
+      "csv": "/data/usd-tarjeta.csv",
+      "json": "/data/usd-tarjeta.json"
+    },
+    {
+      "id": "usd-cripto",
+      "name": {
+        "es": "Dólar cripto",
+        "en": "Crypto dollar"
+      },
+      "description": {
+        "es": "Cotizaciones publicadas por el proveedor. Valor principal: venta.",
+        "en": "Provider-published quotes. Primary value: sell price."
+      },
+      "unit": "ARS / USD",
+      "frequency": "daily",
+      "provider": "ArgentinaDatos",
+      "sourceUrl": "https://api.argentinadatos.com/v1/cotizaciones/dolares/cripto",
+      "licenseUrl": "https://argentinadatos.com/docs/uso",
+      "license": {
+        "es": "Reutilización con atribución según el proveedor; derechos de fuentes originales vigentes.",
+        "en": "Reuse with attribution under provider terms; upstream rights still apply."
+      },
+      "notes": {
+        "es": "Puede repetir cotizaciones en fines de semana y feriados. Una fila no prueba que hubo operaciones ese día. No se verificó la composición histórica de instrumentos.",
+        "en": "May repeat quotes on weekends and holidays. A row does not prove trading occurred that day. Historical instrument composition is not verified."
+      },
+      "start": "2023-02-07",
+      "end": "2026-11-08",
+      "count": 1371,
+      "csv": "/data/usd-cripto.csv",
+      "json": "/data/usd-cripto.json"
+    },
+    {
+      "frequency": "monthly",
+      "sourceUrl": "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_precios_promedio.xls",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license": {
+        "es": "CC BY-SA 4.0. Fuente: INDEC. Normalización e índice: data-library.",
+        "en": "CC BY-SA 4.0. Source: INDEC. Normalization and index: data-library."
+      },
+      "notes": {
+        "es": "Precio promedio del corte asado crudo en Gran Buenos Aires (CABA y 24 partidos). No representa una parrillada completa ni un promedio nacional. Sin estimaciones anteriores a abril de 2016.",
+        "en": "Average raw asado cut price in Greater Buenos Aires (Buenos Aires City and 24 districts). Not a complete barbecue meal or a national average. No estimates before April 2016."
+      },
+      "id": "asado-price",
+      "provider": "INDEC · GBA",
+      "unit": "ARS / kg",
+      "name": {
+        "es": "Precio del asado · GBA",
+        "en": "Asado price · GBA"
+      },
+      "description": {
+        "es": "Precio promedio mensual por kilogramo, en pesos corrientes.",
+        "en": "Monthly average price per kilogram, in current pesos."
+      },
+      "start": "2016-04-01",
+      "end": "2026-09-01",
+      "count": 126,
+      "csv": "/data/asado-price.csv",
+      "json": "/data/asado-price.json"
+    },
+    {
+      "frequency": "monthly",
+      "sourceUrl": "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_precios_promedio.xls",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license": {
+        "es": "CC BY-SA 4.0. Fuente: INDEC. Normalización e índice: data-library.",
+        "en": "CC BY-SA 4.0. Source: INDEC. Normalization and index: data-library."
+      },
+      "notes": {
+        "es": "Precio promedio del corte asado crudo en Gran Buenos Aires (CABA y 24 partidos). No representa una parrillada completa ni un promedio nacional. Sin estimaciones anteriores a abril de 2016.",
+        "en": "Average raw asado cut price in Greater Buenos Aires (Buenos Aires City and 24 districts). Not a complete barbecue meal or a national average. No estimates before April 2016."
+      },
+      "id": "asado-index",
+      "provider": "data-library · INDEC",
+      "unit": "2016-04 = 100",
+      "name": {
+        "es": "Índice del precio del asado",
+        "en": "Asado price index"
+      },
+      "description": {
+        "es": "Índice nominal calculado como 100 × precio del mes / precio de abril de 2016. Elaboración propia; no es un índice oficial del INDEC.",
+        "en": "Nominal index calculated as 100 × monthly price / April 2016 price. Independently calculated; not an official INDEC index."
+      },
+      "start": "2016-04-01",
+      "end": "2026-09-01",
+      "count": 126,
+      "csv": "/data/asado-index.csv",
+      "json": "/data/asado-index.json"
+    },
+    {
+      "id": "salary-private-gross",
+      "name": {
+        "es": "Salario bruto promedio privado registrado",
+        "en": "Registered private-sector average gross pay"
+      },
+      "description": {
+        "es": "Promedio mensual por relación laboral, en pesos corrientes. Incluye aguinaldo y otros pagos periódicos; no es salario de bolsillo.",
+        "en": "Monthly mean per employment relationship, in current pesos. Includes the semiannual bonus and other periodic payments; not take-home pay."
+      },
+      "unit": "ARS / month",
+      "frequency": "monthly",
+      "provider": "Secretaría de Trabajo · OEDE / SIPA · datos.gob.ar",
+      "sourceUrl": "https://infra.datos.gob.ar/catalog/sspm/dataset/153/distribution/153.1/download/remuneracion-bruta-asalariados-registrados-sector-privado-mensual-pesos-base-2009.csv",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "license": {
+        "es": "CC BY 4.0. Fuente: Secretaría de Trabajo / OEDE, en base al SIPA. Distribución: SSPM, Datos Argentina. Normalización: data-library.",
+        "en": "CC BY 4.0. Source: Secretaría de Trabajo / OEDE, based on SIPA. Distribution: SSPM, Datos Argentina. Normalization: data-library."
+      },
+      "notes": {
+        "es": "Argentina. Empleo asalariado privado registrado; excluye empleo público, informal y trabajo independiente. Media aritmética por relación laboral, no mediana ni promedio por persona. Bruto antes de aportes del empleado, por todo concepto, sin indemnizaciones. Los picos de junio y diciembre incluyen aguinaldo. Los últimos dos años son provisorios y pueden revisarse.",
+        "en": "Argentina. Registered private-sector employment; excludes public-sector, informal, and self-employed work. Arithmetic mean per job, not median or per-person average. Gross before employee contributions, all payment concepts excluding dismissal compensation. June and December peaks include the semiannual bonus. The latest two years are provisional and subject to revision."
+      },
+      "start": "1995-01-01",
+      "end": "2026-07-01",
+      "count": 379,
+      "csv": "/data/salary-private-gross.csv",
+      "json": "/data/salary-private-gross.json"
+    },
+    {
+      "id": "salary-private-regular",
+      "name": {
+        "es": "Salario normal y permanente privado registrado",
+        "en": "Registered private-sector regular pay estimate"
+      },
+      "description": {
+        "es": "Remuneración bruta promedio normal y permanente, desestacionalizada, en pesos corrientes. Estimación oficial que excluye la influencia del aguinaldo y otros conceptos estacionales.",
+        "en": "Seasonally adjusted average normal and permanent gross remuneration, in current pesos. Official estimate excluding the influence of the semiannual bonus and other seasonal payments."
+      },
+      "unit": "ARS / month",
+      "frequency": "monthly",
+      "provider": "Secretaría de Trabajo · OEDE / SIPA",
+      "sourceUrl": "https://www.argentina.gob.ar/sites/default/files/nacional_serie_remuneraciones_mensual_11.xlsx",
+      "licenseUrl": "https://www.argentina.gob.ar/terminos-y-condiciones",
+      "license": {
+        "es": "Fuente pública: Secretaría de Trabajo / OEDE, en base al SIPA. Consultar términos del sitio. La licencia del CSV de Datos Argentina no se presume aplicable a este libro. Extracción: data-library.",
+        "en": "Public source: Secretaría de Trabajo / OEDE, based on SIPA. See website terms. The Datos Argentina CSV license is not assumed to apply to this workbook. Extraction: data-library."
+      },
+      "notes": {
+        "es": "Promedio bruto por relación laboral privada registrada, no salario de bolsillo ni promedio de todos los trabajadores. Serie desestacionalizada por el organismo, distinta de la tendencia-ciclo. No aplicamos suavizado adicional ni ajuste por IPC. Puede revisarse. Este libro y el CSV por todo concepto son publicaciones de distinta fecha: no se empalman y sus coberturas pueden diferir.",
+        "en": "Gross mean per registered private-sector job, not take-home pay or an all-workers average. Agency seasonally adjusted series, distinct from the trend-cycle series. No additional smoothing or CPI adjustment is applied. Subject to revision. This workbook and the all-concepts CSV are different publication vintages: they are not spliced and coverage may differ."
+      },
+      "start": "1995-01-01",
+      "end": "2026-06-01",
+      "count": 378,
+      "csv": "/data/salary-private-regular.csv",
+      "json": "/data/salary-private-regular.json"
+    }
+  ]
+}

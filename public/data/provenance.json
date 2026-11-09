@@ -1,0 +1,40 @@
+{
+  "retrievedAt": "2026-11-08T23:23:01.425Z",
+  "sources": {
+    "salaryRegular": {
+      "url": "https://www.argentina.gob.ar/sites/default/files/nacional_serie_remuneraciones_mensual_11.xlsx",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/salaryRegular.xlsx",
+      "sha256": "a58a5aafd2a7f5bbc5f2b80ff79a10bf670301c5d02da10050a0014e3888e8c1"
+    },
+    "salary": {
+      "url": "https://infra.datos.gob.ar/catalog/sspm/dataset/153/distribution/153.1/download/remuneracion-bruta-asalariados-registrados-sector-privado-mensual-pesos-base-2009.csv",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/salary.csv",
+      "sha256": "044810583a737b8167711a1764137ae68ec2fbba2ea3058ac7677d4d95a4fa95"
+    },
+    "asado": {
+      "url": "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_precios_promedio.xls",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/asado.xls",
+      "sha256": "53cc446fc5b545341a6dc52d35dee17e791960c9ae11903158147d346efb0092"
+    },
+    "sanLuis": {
+      "url": "https://infra.datos.gob.ar/catalog/sspm/dataset/197/distribution/197.1/download/indice-precios-consumidor-san-luis-2003-100.csv",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/sanLuis.csv",
+      "sha256": "135c80e2eefa2cd65876c7e3371ee2f4c0609f82d75da6ab962f3f1bc6d1dd23"
+    },
+    "indec": {
+      "url": "https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26,101.1_I2NG_2016_M_22&limit=1000",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/indec.json",
+      "sha256": "0e7b2072e9f26e7f3704b9c5e6b342fe3c80fafb8cdb20ea0ec3fe83ccb11b88"
+    },
+    "reference": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=ARGCCUSMA02STM&cosd=1989-01-01",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/reference.csv",
+      "sha256": "70ba4a1ac42ab17c24ebf2616433814c4194c3078a9c78b0cb4d0b429508f8af"
+    },
+    "rates": {
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares",
+      "file": "data/raw/2026-11-08T23-23-01.425Z/rates.json",
+      "sha256": "ef070b017d5bccc425f0ffdf50a76207baf6104da0d8d2cd99fb52b3fcded53a"
+    }
+  }
+}

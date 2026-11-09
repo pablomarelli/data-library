@@ -1,0 +1,66 @@
+{
+  "retrievedAt": "2026-11-08T18:52:04.655Z",
+  "source": "https://github.com/bklit/bklit-ui",
+  "registry": [
+    {
+      "url": "https://bklit.com/r/line-chart.json",
+      "sha256": "821e44099d39c226d095a5b1ca76023b5c042e49fabc58f5b17b43ad4fc1c67b"
+    },
+    {
+      "url": "https://bklit.com/r/chart-context.json",
+      "sha256": "978c6af551306a149e17bfa464a40c218776dfe82f3eb29ad1d780ec481b798e"
+    },
+    {
+      "url": "https://bklit.com/r/utils.json",
+      "sha256": "19a07bb4c759b72b15330eb67541f60308cc406a452a34c5b88c52273fc70565"
+    },
+    {
+      "url": "https://bklit.com/r/chart-utils.json",
+      "sha256": "2ddad7a1223f684e3346ee6503d7a85a1ef163e689762bcde1627b4d1714063c"
+    },
+    {
+      "url": "https://bklit.com/r/chart-animation.json",
+      "sha256": "b2914210f10664a2605b08737f967491843cfc279b0ac4240e7c18cbae13b8e6"
+    },
+    {
+      "url": "https://bklit.com/r/chart-series.json",
+      "sha256": "704d2666f0515c4d00f494933fbba4692056ae59865aae59ffa8a717d2f684cd"
+    },
+    {
+      "url": "https://bklit.com/r/chart-tooltip.json",
+      "sha256": "aaccb9211bb56493d801b72a7c987c2d5034138e93590b132bbb07cdd8dca9de"
+    },
+    {
+      "url": "https://bklit.com/r/grid.json",
+      "sha256": "35e64a7ace78160171e348b7016a9bdd723189f55eb66fabe3d6ff304e146b29"
+    },
+    {
+      "url": "https://bklit.com/r/x-axis.json",
+      "sha256": "83ab595c8c3b4274dbba9678103922e00f93bf4101a9e4d8d50e16c7f0984d08"
+    },
+    {
+      "url": "https://bklit.com/r/shimmering-text.json",
+      "sha256": "2d7fed33b1faec1852941823695cf131f72b3e2e69e98920d95152da96c9383b"
+    },
+    {
+      "url": "https://bklit.com/r/chart-parent-size.json",
+      "sha256": "374edcb87e99f5f6a5adc31ed4bda32562a4eadd811a507680d041194355fc46"
+    },
+    {
+      "url": "https://bklit.com/r/background.json",
+      "sha256": "c090d90f256456d71f89dba45950de8c131d2a02638bea23b11e0ad6c0df5462"
+    },
+    {
+      "url": "https://bklit.com/r/patterns.json",
+      "sha256": "d717ad853c7796644ac52e97efd44ef1f2751c5079bd171d2084000e6130ea53"
+    },
+    {
+      "url": "https://bklit.com/r/gradients.json",
+      "sha256": "92d569750ad1ae3e3c88157c844f32c6a1b33aae018e87486112e95f1e9e4888"
+    },
+    {
+      "url": "https://bklit.com/r/y-axis.json",
+      "sha256": "0c7ef2926b37200554a850bb3d89eef8960edde5d6a0a0653b88eabde27835d2"
+    }
+  ]
+}
